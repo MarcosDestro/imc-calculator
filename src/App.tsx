@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import styles from './App.module.scss';
 import powerImg from './assets/powered.png';
+import { GridItem } from './components/GridItem';
+import { levels, calculateImc } from './helpers/imc'
 
 export function App() {
   const [ heightField, setHeightField ] = useState<number>(0);
@@ -11,9 +13,7 @@ export function App() {
       alert("Preencha todos os campos");
       return;
     }
-
     alert('Passou');
-
   }
 
   return (
@@ -31,14 +31,15 @@ export function App() {
 
           <input
             type="number"
-            placeholder='Digite a sua altura. Ex: 1.5 (em metros)'
+            placeholder='Digite a sua altura. Ex: 1,5 (em metros)'
             value={heightField > 0 ? heightField : ''}
             onChange={(e)=>setHeightField(parseFloat(e.target.value))}
+            step='0.1'
            />
 
           <input
             type="number"
-            placeholder='Digite a seu Peso. Ex: 75.3 (em Kg)'
+            placeholder='Digite a seu Peso. Ex: 75,3 (em Kg)'
             value={weightField > 0 ? weightField : ''}
             onChange={(e)=>setWeightField(parseFloat(e.target.value))}
            />
@@ -47,7 +48,11 @@ export function App() {
         </div>
 
         <div className={styles.rightSide}>
-          ...
+          <div className={styles.grid}>
+            {levels.map((item, index)=>(
+              <GridItem key={index} item={item}/>
+            ))}
+          </div>
         </div>
 
       </div>
