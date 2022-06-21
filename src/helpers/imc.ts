@@ -8,8 +8,8 @@ export interface LevelProps{
 
 export const levels: LevelProps[] = [
     { title: 'Magreza', color: '#96a3ab', icon: 'down', imc: [0, 18.5] },
-    { title: 'Normal', color: '#0ead69', icon: 'up', imc: [18.51, 24.99] },
-    { title: 'Sobrepeso', color: '#e2b036', icon: 'down', imc: [25, 30] },
+    { title: 'Normal', color: '#0ead69', icon: 'up', imc: [18.51, 25] },
+    { title: 'Sobrepeso', color: '#e2b036', icon: 'down', imc: [25.01, 30] },
     { title: 'Obesidade', color: '#c3423f', icon: 'down', imc: [30.01, 99] },
 ];
 
